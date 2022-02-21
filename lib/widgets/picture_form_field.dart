@@ -99,17 +99,20 @@ class _PictureFormFieldState extends State<PictureFormField> {
             ),
           ),
           _state == AppState.cropped
-              ? ClipRRect(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10.0),
-                  ),
-                  child: GestureDetector(
-                    onTap: () {
-                      _pickImage();
-                    },
-                    child: Image.file(
-                      _image!,
-                      fit: BoxFit.cover,
+              ? SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
+                    child: GestureDetector(
+                      onTap: () {
+                        _pickImage();
+                      },
+                      child: Image.file(
+                        _image!,
+                        fit: BoxFit.fitWidth,
+                      ),
                     ),
                   ),
                 )
